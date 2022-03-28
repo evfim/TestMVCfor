@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../../static/styles/userList.css" th:href="@{/styles/userList.css}" rel="stylesheet" />
+    <title>Магазин</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<h1>Все продукты:</h1>
+<table class="table">
+<tr>
+    <th>id</th>
+    <th>название</th>
+    <th>Категория</th>
+    <th>Производитель</th>
+    <th>цена</th>
+    <th>Описание</th>
+    <th> </th>
+</tr>
+<tr th:each="t : ${types}">
+    <td class="align-middle" th:text="${t.id}"></td>
+    <td class="align-middle" th:text="${t.name}"></td>
+    <td class="align-middle" th:text="${t.productType.name}"></td>
+    <td class="align-middle" th:text="${t.manufacturer.name}"></td>
+    <td class="align-middle" th:text="${t.price}"></td>
+    <td class="align-middle" th:text="${t.description}"></td>
+    <td><a th:href="@{'detailsProduct?id=' + ${t.id}}">подробнее</a></td>
+</tr>
+</table>
+
+<hr>
+<a href="http://localhost:8080/user">
+    Просмотреть список пользователей и добавить продукт (только для admin-ов)
+</a>
+<hr>
+
+<a href="http://localhost:8080/cart">
+    КОРЗИНА
+</a>
+<hr>
+<div>
+    <form th:action = "@{/logout}" method="post" >
+        <input type="submit" value="выйти"/>
+    </form>
+</div>
+
+</body>
+</html>

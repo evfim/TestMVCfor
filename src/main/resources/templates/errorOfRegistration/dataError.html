@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ошибка регистрации</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<h1>Ошибка при регистрации :(</h1>
+<p><b> Одно из полей заполненно неправильно </b></p>
+
+<p th:text="'! ' + ${dataErrorUser} + ' !'" />
+
+<hr>
+<p><b> Попробуйте еще раз: </b></p>
+<a href="http://localhost:8080/registration">
+    Регистрация
+</a>
+</body>
+</html>

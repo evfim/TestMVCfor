@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="head1">Подробности заказа</h1>
+    <hr>
+
+    <p class="head2">Заказ:</p>
+    <tr th:each="y : ${list}">
+        <td class="align-middle" th:text="${y.id}"></td>
+        <td class="align-middle" th:text="${y.user.username}"></td>
+        <td class="align-middle" th:text="${y.date}"></td>
+        <hr>
+        <p class="head2">Подробнее о покупателе:</p>
+        <td class="align-middle" th:text="${y.mobile}"></td>
+        <td class="align-middle" th:text="${y.payment}"></td>
+        <td class="align-middle" th:text="${y.delivery}"></td>
+    </tr>
+</div>
+<tr th:each="t : ${list2}">
+    <td class="align-middle" th:text="${t.username}"></td>
+</tr>
+
+<hr>
+<p>Продукт и его количетсво:</p>
+<tr th:each="g : ${list3}">
+    <td class="align-middle" th:text="${g.product.name}"></td>
+    <td class="align-middle" th:text="${g.quantity}"></td>
+    <p>-----------------</p>
+</tr>
+
+
+
+</body>
+</html>
+

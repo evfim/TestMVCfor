@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Форма для регистрации</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="head1">Добавление производителя</h1>
+
+    <p>Все производители: </p>
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>производитель</th>
+            <th>дата регистрации</th>
+        </tr>
+    <tr th:each="t : ${list}">
+        <td class="align-middle" th:text="${t.id}"></td>
+        <td class="align-middle" th:text="${t.name}"></td>
+        <td class="align-middle" th:text="${t.dateOfreg}"></td>
+    </tr>
+    </table>
+
+    <h2 class="head2">Заполните все поля: </h2>
+    <form th:action="@{/user/createManufactureType}" method="post">
+        <div class="form-group">
+            <div><label> Название фирмы  : <input type="text" name="name" placeholder="Введите название фирмы..."/> </label></div>
+        </div>
+        <p>   </p>
+        <div><input class="btn" type="submit" value="Отправить"/></div>
+    </form>
+    <hr>
+</div>
+<form th:action="@{/user/editManufactureById}" method="post">
+    <input type="number" name="numbform" placeholder="Id кого изменить..."/>
+    <input  type="submit" value="Изменить"/>
+</form>
+<p>    </p>
+<form th:action="@{/user/deleteManufactureById}" method="post">
+    <input type="number" name="numbform" placeholder="Id кого удалить..."/>
+    <input  type="submit" value="Удалить"/>
+</form>
+</body>
+</html>

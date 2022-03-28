@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="untitled1" />
+        <module name="12.Spring (form for post)real" />
+        <module name="12.Spring (form for post)" />
+        <module name="11.Spring" />
+        <module name="ShopMVC" />
+        <module name="14.Shop" />
+        <module name="SHOPTEST2" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="11.Spring" options="-parameters" />
+      <module name="12.Spring (form for post)" options="-parameters" />
+      <module name="12.Spring (form for post)real" options="-parameters" />
+      <module name="14.Shop" options="-parameters" />
+      <module name="SHOPTEST2" options="-parameters" />
+      <module name="ShopMVC" options="-parameters" />
+      <module name="untitled1" options="-parameters" />
+    </option>
+  </component>
+</project>

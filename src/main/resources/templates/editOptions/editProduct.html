@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Форма для регистрации</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<h1>Обновление Продукта</h1>
+<tr th:each="t : ${list}">
+    <table class="table">
+        <tr>
+
+        </tr>
+        <tr th:each="t : ${list}">
+        </tr>
+    </table>
+
+
+    <form th:action="@{/user/editProduct}" method="post">
+
+        <div><label>  Id : <input type="text" name="id" th:value="${t.id}" readonly/> </label></div>
+
+        <div><label> Name  : <input type="text" name="name" th:value="${t.name}"/> </label></div>
+
+        <div><label>  productType : <input type="text" name="productType" th:value="${t.productType.name}" readonly/> </label></div>
+
+        <div><label>  Manufacturer : <input type="text" name="manufacturer" th:value="${t.manufacturer.name}" readonly/> </label></div>
+
+        <div><label> Price  : <input type="number" name="price" th:value="${t.price}"/> </label></div>
+
+        <div><label> Description  : <input type="text" name="description" th:value="${t.description}"/> </label></div>
+
+        <div><input class="btn" type="submit" value="Отправить"/></div>
+    </form>
+
+</tr>
+
+</body>
+</html>

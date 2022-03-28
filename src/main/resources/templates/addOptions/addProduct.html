@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Форма для регистрации</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Все продукты:</h1>
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>название</th>
+            <th>Категория</th>
+            <th>Производитель</th>
+            <th>цена</th>
+            <th>Описание</th>
+        </tr>
+        <tr th:each="t : ${types}">
+            <td class="align-middle" th:text="${t.id}"></td>
+            <td class="align-middle" th:text="${t.name}"></td>
+            <td class="align-middle" th:text="${t.productType.name}"></td>
+            <td class="align-middle" th:text="${t.manufacturer.name}"></td>
+            <td class="align-middle" th:text="${t.price}"></td>
+            <td class="align-middle" th:text="${t.description}"></td>
+        </tr>
+    </table>
+    <hr>
+
+
+    <h1 class="head1">Добавление продукта:</h1>
+    <h2 class="head2">Заполните все поля: </h2>
+
+
+    <form th:action="@{/user/addProductById}" method="post">
+        <div class="form-group">
+            <div><label> Название  : <input type="text" name="name" placeholder="Введите название товара..."/> </label></div>
+        </div>
+        <p>   </p>
+        <div class="form-group">
+            <div><label> Цена : <input type="number" name="price" placeholder="Введите цену товара..."/> </label></div>
+        </div>
+        <p>   </p>
+
+
+        <div class="form-group">
+            <div><label> Категория  : <input type="number" name="typeId" placeholder="Id категории..."/> </label></div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div><label> Производитель  : <input type="number" name="manufacturerId" placeholder="Id производителя..."/> </label></div>
+        </div>
+        <p>   </p>
+        <div class="form-group">
+            <p><textarea rows="10" cols="45" name="description" placeholder="Начните печатать описание..."></textarea></p>
+        </div>
+        <p>   </p>
+        <div><input class="btn" type="submit" value="Отправить"/></div>
+    </form>
+    <hr>
+    <p>Все категории: </p>
+    <table class="table1">
+        <tr>
+            <th>id</th>
+            <th>Категория</th>
+        </tr>
+        <tr th:each="t1 : ${list1}">
+            <td class="align-middle" th:text="${t1.id}"></td>
+            <td class="align-middle" th:text="${t1.name}"></td>
+        </tr>
+    </table>
+
+
+    <p>Все производители: </p>
+    <table class="table2">
+        <tr>
+            <th>id</th>
+            <th>производитель</th>
+        </tr>
+        <tr th:each="t2 : ${list2}">
+            <td class="align-middle" th:text="${t2.id}"></td>
+            <td class="align-middle" th:text="${t2.name}"></td>
+        </tr>
+    </table>
+</div>
+<hr>
+
+<form th:action="@{/user/editProductById}" method="post">
+    <input type="number" name="numbform" placeholder="Id изменить..."/>
+    <input  type="submit" value="Изменить"/>
+</form>
+
+<p>      </p>
+<form th:action="@{/user/deleteProduct}" method="post">
+    <input type="number" name="numbform" placeholder="Id удалить..."/>
+    <input  type="submit" value="Удалить"/>
+</form>
+</body>
+</html>

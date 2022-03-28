@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Форма для регистрации</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<h1>Обновление данных</h1>
+
+<table class="table">
+<tr>
+    <th>id</th>
+    <th>имя</th>
+    <th>почта</th>
+    <th>роль</th>
+    <th> </th>
+</tr>
+<tr th:each="t : ${list}">
+    <td class="align-middle" th:text="${t.id}"></td>
+    <td class="align-middle" th:text="${t.username}"></td>
+    <td class="align-middle" th:text="${eamil}"></td>
+    <td class="align-middle" th:text="${t.roles}"></td>
+
+
+
+<form th:action="@{/user/updateUser}" method="post">
+
+        <div><label>  Id : <input type="text" name="id" th:value="${t.id}" readonly/> </label></div>
+
+        <div><label> Username  : <input type="text" name="username" th:value="${t.username}"/> </label></div>
+
+        <div><label> Email : <input type="text" name="email" th:value="${eamil}"/> </label></div>
+
+        <div><label>  Password : <input type="password" name="password" th:value="${t.password}" readonly/> </label></div>
+
+
+        <div><label>  Admin : <input type="text" name="rolesEdit" th:value="${rolesEdit}"/> </label></div>
+
+
+    <div><input class="btn" type="submit" value="Отправить"/></div>
+    <hr>
+</form>
+
+</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../../static/styles/userList.css" th:href="@{/styles/userList.css}" rel="stylesheet" />
+    <title>Корзина</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<h1>Все продукты добавленные в корзину:</h1>
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>название</th>
+        <th>Категория</th>
+        <th>Производитель</th>
+        <th>цена</th>
+        <th> </th>
+    </tr>
+    <tr th:each="t : ${types}">
+        <td class="align-middle" th:text="${t.id}"></td>
+        <td class="align-middle" th:text="${t.name}"></td>
+        <td class="align-middle" th:text="${t.productType.name}"></td>
+        <td class="align-middle" th:text="${t.manufacturer.name}"></td>
+        <td class="align-middle" th:text="${t.price}"></td>
+        <td><a th:href="@{'detailsProduct?id=' + ${t.id}}">к товару</a></td>
+    </tr>
+</table>
+
+<hr>
+<p>Очистить коризну: </p>
+<form th:action="@{/deleteAllCart}" method="post">
+
+    <div><label>  <input type="hidden" name="id" th:value="YES" readonly/> </label></div>
+
+    <div><input class="btn" type="submit" value="Очистить"/></div>
+</form>
+<hr>
+<p>Сделать заказ: </p>
+<form th:action="@{/order}" method="post">
+
+    <div><label>  <input type="hidden" name="id" th:value="YES" readonly/> </label></div>
+
+    <div><input class="btn" type="submit" value="Заказать"/></div>
+</form>
+<hr>
+<p>    </p>
+
+<a href="http://localhost:8080/shop">
+    МАГАЗИН
+</a>
+<hr>
+<div>
+    <form th:action = "@{/logout}" method="post" >
+        <input type="submit" value="выйти"/>
+    </form>
+</div>
+
+
+</body>
+</html>

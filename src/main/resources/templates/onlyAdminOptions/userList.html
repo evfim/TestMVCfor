@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../../static/styles/userList.css" th:href="@{/styles/userList.css}" rel="stylesheet" />
+    <title>Список всех пользователей</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="container">
+<h1 class="head1">Тут информация только для Admin-ов</h1>
+<hr>
+    <div class="social">
+<p class="head2">База пользователей:</p>
+
+
+<tr th:each="y : ${list}">
+    <td class="align-middle" th:text="${y.id}"></td>
+    <td class="align-middle" th:text="${y.username}"></td>
+    <a th:href="@{'user/intform?id=' + ${y.id}}">отобразить</a>
+
+    <p>-----------------</p>
+</tr>
+    </div>
+
+
+</div>
+
+<hr>
+<h2 class="head1">Добавить новый продукт:</h2>
+<a href="http://localhost:8080/user/addProduct">
+    Добавить продукт ->
+</a>
+
+<p>   </p>
+
+<a href="http://localhost:8080/user/addManufact">
+    Добавить производителя ->
+</a>
+
+<p>   </p>
+<a href="http://localhost:8080/user/typeProduct">
+    Добавить категорию ->
+</a>
+<hr>
+<h3 class="head1">Просмотреть все заказы:</h3>
+<a href="http://localhost:8080/user/allOrders">
+    ПРОСМОТРЕТЬ ВСЕ ЗАКАЗЫ ->
+</a>
+
+<p>   </p>
+<hr>
+<p>    </p>
+<a href="http://localhost:8080/shop">
+    МАГАЗИН
+</a>
+</body>
+</html>

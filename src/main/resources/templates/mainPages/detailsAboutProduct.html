@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link href="../../static/styles/userList.css" th:href="@{/styles/userList.css}" rel="stylesheet" />
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+
+
+<tr th:each="t : ${list}">
+  <table class="table">
+    <tr>
+      <th>id</th>
+      <th>название</th>
+      <th>Категория</th>
+      <th>Производитель</th>
+      <th>цена</th>
+      <th>Описание</th>
+    </tr>
+    <tr th:each="t : ${list}">
+      <td class="align-middle" th:text="${t.id}"></td>
+      <td class="align-middle" th:text="${t.name}"></td>
+      <td class="align-middle" th:text="${t.productType.name}"></td>
+      <td class="align-middle" th:text="${t.manufacturer.name}"></td>
+      <td class="align-middle" th:text="${t.price}"></td>
+      <td class="align-middle" th:text="${t.description}"></td>
+    </tr>
+  </table>
+
+
+  <form th:action="@{/updateShoppingCart}" method="post">
+
+    <div><label>   <input type="hidden" name="id" th:value="${t.id}" readonly/> </label></div>
+
+    <div><label> Количетсво  : <input type="number" name="value" th:value="${howmany}"/> </label></div>
+
+    <div><input class="btn" type="submit" value="Добавить"/></div>
+  </form>
+
+
+
+<hr>
+
+
+<p>Отзывы о товаре:</p>
+<table class="table">
+  <tr>
+    <th>Автор</th>
+    <th>Заголовок</th>
+    <th>Новость</th>
+    <th>Дата</th>
+  </tr>
+  <tr th:each="news : ${list2}">
+    <td class="align-middle" th:text="${news.author.username}"></td>
+    <td class="align-middle" th:text="${news.hader}"></td>
+    <td class="align-middle" th:text="${news.text}"></td>
+    <td class="align-middle" th:text="${news.date}"></td>
+  </tr>
+</table>
+
+
+
+
+<form th:action="@{/feedback}" method="post">
+  <div><label>   <input type="hidden" name="id2" th:value="${t.id}" readonly/> </label></div>
+  <div class="form-up">
+    <p><textarea rows="10" cols="45" name="text" placeholder="Начните печатать отзыв..."></textarea></p>
+  </div>
+  <div class="form-group">
+    <input type="text" name="hader" placeholder="Введите заголовок...">
+  </div>
+  <button type="submit">Добавить</button>
+</form>
+
+<hr>
+<p> Средняя оценка товара: </p>
+<p th:text="' ' + ${newWords} + ' /5'" />
+<p> Ваша оценка товара: </p>
+
+  <form th:action="@{/productEvaluation}" method="post">
+    <div><label>   <input type="hidden" name="id3" th:value="${t.id}" readonly/> </label></div>
+<div class="form-group">
+  <select  name="chooseRating">
+    <option disabled>Поставьте оценку</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</div>
+    <p>   </p>
+    <div><input class="btn" type="submit" value="Оценить"/></div>
+</form>
+
+</tr>
+<hr>
+<a href="http://localhost:8080/cart">
+  КОРЗИНА
+</a>
+
+<p>    </p>
+<a href="http://localhost:8080/shop">
+  МАГАЗИН
+</a>
+
+
+
+</body>
+</html>

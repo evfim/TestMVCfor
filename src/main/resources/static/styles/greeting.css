@@ -1,0 +1,15 @@
+body{
+    background-color: #f1f1f1;
+    max-width: 500px;
+    margin: auto;
+
+    font-size: 40px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.social{
+    max-width: 390px;
+    background: antiquewhite;
+    border-radius: 14px;
+}

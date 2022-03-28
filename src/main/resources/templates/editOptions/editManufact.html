@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Форма для регистрации</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<h1>Обновление Производителя</h1>
+
+<tr th:each="t : ${list}">
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>производитель</th>
+            <th>дата регистрации</th>
+        </tr>
+        <tr th:each="t : ${list}">
+            <td class="align-middle" th:text="${t.id}"></td>
+            <td class="align-middle" th:text="${t.name}"></td>
+            <td class="align-middle" th:text="${t.dateOfreg}"></td>
+        </tr>
+    </table>
+
+
+    <form th:action="@{/user/editManufacture}" method="post">
+
+        <div><label>  Id : <input type="text" name="id" th:value="${t.id}" readonly/> </label></div>
+
+        <div><label> Username  : <input type="text" name="name" th:value="${t.name}"/> </label></div>
+
+        <div><input class="btn" type="submit" value="Отправить"/></div>
+    </form>
+
+</tr>
+
+
+
+</body>
+</html>

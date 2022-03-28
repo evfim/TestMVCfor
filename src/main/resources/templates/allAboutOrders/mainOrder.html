@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title>Order</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="head1">Дополнительные сведения</h1>
+    <h2 class="head2">Заполните все поля для подтверждения заказа: </h2>
+
+    <div class="social">
+        <ul>
+            <li>Мобильный</li>
+            <li>Вид оплаты</li>
+            <li>Нужна ли доставка</li>
+        </ul>
+    </div>
+
+    <form th:action="@{/additionalRegistration}" method="post">
+
+        <div class="form-group">
+            <div><label> Mobile  : <input type="text" name="mobile" placeholder="Введите username..."/> </label></div>
+        </div>
+        <p>   </p>
+        <div class="form-group">
+            <select  name="payment">
+                <option disabled>Выберите способ оплаты</option>
+                <option>Картой</option>
+                <option>Наличкой</option>
+            </select>
+        </div>
+        <p>   </p>
+        <div class="form-group">
+            <select  name="delivery">
+                <option disabled>Нужна ли доставка?</option>
+                <option>Доставка</option>
+                <option>Самовывоз</option>
+            </select>
+        </div>
+        <p>   </p>
+        <div><input class="btn" type="submit" value="Заказать"/></div>
+    </form>
+    <hr>
+
+</div>
+</body>
+</html>
